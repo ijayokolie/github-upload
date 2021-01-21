@@ -56,8 +56,7 @@ resource "azurerm_app_service" "webapp" {
   app_service_plan_id = azurerm_app_service_plan.app_service_plan_webapp.id
 
   site_config {
-    always_on        = true
-    app_command_line = var.application_dll
+    always_on        = true 
     scm_type         = "VSTSRM"
   }
 
