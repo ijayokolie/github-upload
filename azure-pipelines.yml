@@ -3,3 +3,34 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+trigger:
+  branches:
+    include:
+    - master
+    - releases/nneka-terraform-*
+  paths:
+    include:
+    - src/*
+
+variables:
+  ARTIFACT_NAME: drop
+
+pool:
+  vmImage: 'vs2017-win2016'
+
+steps:
+- task: CopyFiles@2
+  displayName: 'Copy terraform Files to artifacts'
+  inputs:
+    SourceFolder: src/dev/
+    TargetFolder: '$(build.artifactstagingdirectory)/terraform'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  inputs:
+    artifactName: $(ARTIFACT_NAME)
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop scripts'
+  inputs:
+    PathtoPublish: src/scripts
