@@ -64,7 +64,6 @@ resource "azurerm_app_service" "webapp" {
    identity {
     type = "SystemAssigned"
   }
-
   app_settings = {
     "APPINSIGHTS_INSTRUMENTATIONKEY" = azurerm_application_insights.app-insights.instrumentation_key
      "XDT_MicrosoftApplicationInsights_Mode" = "default"
