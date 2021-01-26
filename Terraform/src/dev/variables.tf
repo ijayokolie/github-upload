@@ -56,7 +56,7 @@ variable "app_service_plan_capacity" {
   type    = number
 }
 
-# sql
+# sql setting
 variable "database_name" {
   description = "The name of database."
   type     = string
