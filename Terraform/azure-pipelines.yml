@@ -10,7 +10,7 @@ trigger:
     - releases/nneka-terraform-*
   paths:
     include:
-    - src/*
+    - Terraform/src/*
 
 variables:
   ARTIFACT_NAME: drop
@@ -22,7 +22,7 @@ steps:
 - task: CopyFiles@2
   displayName: 'Copy terraform Files to artifacts'
   inputs:
-    SourceFolder: src/dev/
+    SourceFolder: Terraform/src/dev/
     TargetFolder: '$(build.artifactstagingdirectory)/terraform'
 
 - task: PublishBuildArtifacts@1
@@ -33,4 +33,4 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop scripts'
   inputs:
-    PathtoPublish: src/scripts
+    PathtoPublish: Terraform/src/scripts
