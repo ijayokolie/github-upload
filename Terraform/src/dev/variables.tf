@@ -56,3 +56,29 @@ variable "app_service_plan_capacity" {
   type    = number
 }
 
+# sql
+variable "database_name" {
+  description = "The name of database."
+  type     = string
+}
+
+variable "sql_server" {
+  description = "The name of the SQL Server on which to create the database."
+  type     = string
+}
+
+variable "sql_log_storage" {
+  description = "The storage account to hold database audit data"
+  type     = string
+}
+
+variable "sql_admin_user" {
+  description = "The database admin user"
+  type     = string
+}
+
+variable "sql_password" {
+  description = "Initial password"
+  type     = string
+}
+
